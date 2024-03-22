@@ -11,4 +11,7 @@
 #         ('mundo', 44, 20, 90, 'hola', 'mundo', 44)
 t = input()
 m = input()
-print(m)
+t_tupla = tuple(t.split())
+m_tupla = tuple(m.split())
+union = m_tupla+t_tupla+m_tupla
+print(union)
