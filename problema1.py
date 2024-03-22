@@ -5,13 +5,25 @@
 #La salida debe ser una tupla en el orden t2 t1 t2
 #---------------------------------
 #Ejemplo de entrada:
-#         20 90 hola
-#		  mundo 44
+#20 90 hola
+#mundo 44
 #La salida debe ser
-#         ('mundo', 44, 20, 90, 'hola', 'mundo', 44)
+#('mundo', 44, 20, 90, 'hola', 'mundo', 44)
 t = input()
 m = input()
-t_tupla = tuple(t.split())
-m_tupla = tuple(m.split())
-union = m_tupla+t_tupla+m_tupla
-print(union)
+union = tuple(m.split())+tuple(t.split())+tuple(m.split())
+elementos_modif = []
+for elemento in union:
+    elemento = elemento.strip() 
+    if elemento.isdigit():
+        elementos_modif.append(int(elemento))
+    elif "." in elemento:
+        try:
+            elementos_modif.append(float(elemento))
+        except ValueError:
+            elementos_modif.append(f'{elemento}')
+    else:
+        elementos_modif.append(f'{elemento}')
+
+tupla_lista = tuple(elementos_modif)
+print(tupla_lista)
